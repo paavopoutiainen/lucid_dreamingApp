@@ -21,11 +21,19 @@ function JournalPage() {
 
   const [numberOfDreams, toggle] = useState(1)
   const [dreamComponents, setDreams] = useState()
-  const [dream, fillDreams] = useState([])
+  /*const [dreams, fillDreams] = useState([])
 
- 
-
+  function addNewObjectToState(){
+    let array = [...dreams]
+    array.push({
+      name: "",
+      content: ""
+    })
+    fillDreams(array)
+  }
+*/
   function createNewDream(){
+   /// addNewObjectToState()
     toggle(numberOfDreams +1)
     
     let helpArray = []

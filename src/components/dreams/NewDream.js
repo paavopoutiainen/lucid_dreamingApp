@@ -35,6 +35,10 @@ const NewDream = ({number}) => {
     const classes = useStyles();
     const [dream, setDream] = useState({name: "", content:""})
 
+    function handleChange(e){
+      setDream({...dream, [e.target.name] : e.target.value})
+    }
+
     return (
         <Paper className={classes.paper}>
             <h5 style={{margin: 8}}>Dream {number}</h5>
@@ -44,7 +48,9 @@ const NewDream = ({number}) => {
                     label="Name Of The Dream"
                     placeholder="Placeholder"
                     multiline
-                    
+                    name = "name"
+                    value={dream.name}
+                    onChange={(e) => handleChange(e)}
                     className={classes.textField}
                     margin="normal"
                     variant="filled"
@@ -55,6 +61,9 @@ const NewDream = ({number}) => {
                     placeholder="Placeholder"
                     multiline
                     fullWidth
+                    name = "content"
+                    value={dream.content}
+                    onChange={(e) => handleChange(e)}
                     style={{height: "100%"}}
                     className={classes.textField}
                     margin="normal"
