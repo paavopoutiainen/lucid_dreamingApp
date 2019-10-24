@@ -21,6 +21,7 @@ function JournalPage() {
 
   const [numberOfDreams, toggle] = useState(1)
   const [dreamComponents, setDreams] = useState()
+  const [dream, fillDreams] = useState([])
 
  
 
