@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +40,20 @@ const NewDream = ({number}) => {
       setDream({...dream, [e.target.name] : e.target.value})
     }
 
+    function saveDream(){
+      const newDream = {
+        name: dream.name,
+        content: dream.content,
+        date: new Date(),
+        lucid: true
+      }
+      axios.post("http://localhost:3001/dreams", newDream)
+      .then(res => console.log(res))
+
+      setDream({name:"", content:""})
+
+    }
+
     return (
         <Paper className={classes.paper}>
             <h5 style={{margin: 8}}>Dream {number}</h5>
@@ -69,7 +84,7 @@ const NewDream = ({number}) => {
                     margin="normal"
                     variant="filled"
                 />
-                <Button variant="contained"className={classes.button}>
+                <Button variant="contained"className={classes.button} onClick={saveDream}>
                   Save
                 </Button>
           </form>

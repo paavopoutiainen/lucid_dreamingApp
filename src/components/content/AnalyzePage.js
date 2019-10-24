@@ -1,6 +1,6 @@
 import React from "react"
 
-function AnalyzePage(){
+function AnalyzePage({dreams}){
     
   
     return (

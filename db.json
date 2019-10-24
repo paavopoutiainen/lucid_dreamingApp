@@ -1,0 +1,53 @@
+{
+  "dreams": [
+    {
+      "id": 1,
+      "name": "hulluja ihmisiä",
+      "content": "lorem lksdjfkljsdlfsdf",
+      "date": "2019-05-30T17:30:31.098Z",
+      "lucid": true
+    },
+    {
+      "id": 2,
+      "name": "hulluja ihmisiä",
+      "content": "lorem lksdjfkljsdlfsdf",
+      "date": "2019-05-30T18:39:34.091Z",
+      "lucid": true
+    },
+    {
+      "id": 3,
+      "name": "hulluja ihmisiä",
+      "content": "lorem lksdjfkljsdlfsdf",
+      "date": "2019-05-30T19:20:14.298Z",
+      "lucid": true
+    },
+    {
+      "name": "erikoinen uni",
+      "content": "olipas erikoinen uni kerrassaan",
+      "date": "2019-10-24T14:56:53.432Z",
+      "lucid": true,
+      "id": 4
+    },
+    {
+      "name": "painajainen",
+      "content": "apua siellä oli mörkö\n",
+      "date": "2019-10-24T14:57:46.762Z",
+      "lucid": true,
+      "id": 5
+    },
+    {
+      "name": "dfhdgh",
+      "content": "fghfgh",
+      "date": "2019-10-24T14:58:19.230Z",
+      "lucid": true,
+      "id": 6
+    },
+    {
+      "name": "fghgfhfg",
+      "content": "fdghdfhdf",
+      "date": "2019-10-24T14:58:19.865Z",
+      "lucid": true,
+      "id": 7
+    }
+  ]
+}

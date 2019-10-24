@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import AnalyzePage from "./components/content/AnalyzePage.js"
@@ -6,6 +6,8 @@ import JournalPage from "./components/content/JournalPage.js"
 import IdeasPage from "./components/content/IdeasPage.js"
 import Navbar from "./components/layout/Navbar"
 import DreamList from "./components/dreams/Dreamlist.js"
+import DreamDetails from "./components/dreams/DreamDetails.js"
+import axios from "axios"
 
 
 
@@ -21,6 +23,19 @@ function Home() {
 }
 
 function App() {
+
+  const [dreams, setDreams] = useState([])
+
+  function fetchDreams(){
+    axios.get("http://localhost:3001/dreams")
+    .then(res => res.data)
+    .then(res => setDreams(res))
+  }
+
+  useEffect(() => {
+    fetchDreams()
+  }, [])
+
   return (
     <div>
       <BrowserRouter>
@@ -30,8 +45,9 @@ function App() {
             <Route path ="/journal" component={JournalPage}></Route>
             <Route path = "/exercise_ideas" component={IdeasPage}></Route>
             <Route path = "/analyze_dreams" component={AnalyzePage}></Route>
-            <Route path = "/dreamlist" component={DreamList}></Route>
+            <Route path = "/dreamlist" render={(props) => <DreamList {...props} dreams = {dreams}/>}></Route>
             <Route path = "/ideas" component={IdeasPage}></Route>
+            <Route path = "/dreams/:id" component={DreamDetails}></Route>
           </Switch>
       </BrowserRouter>
       

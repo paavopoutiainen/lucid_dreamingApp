@@ -3,27 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import DreamSummary from "./DreamSummary"
 
 
-let dreams = [
-    {
-        name: "hulluja ihmisiä",
-        content: "lorem lksdjfkljsdlfsdf",
-        date: new Date(),
-        lucid: true
-    },
-    {
-        name: "hulluja ihmisiä",
-        content: "lorem lksdjfkljsdlfsdf",
-        date: new Date(),
-        lucid: true
-    },
-    {
-        name: "hulluja ihmisiä",
-        content: "lorem lksdjfkljsdlfsdf",
-        date: new Date(),
-        lucid: true
-    }
-]
-const Dreamlist = () => {
+
+const Dreamlist = ({dreams}) => {
+
+
+    console.log(dreams)
 
     let dreamSummaries = (
                 <Grid container spacing={1} direction = "column" alignContent="center">
