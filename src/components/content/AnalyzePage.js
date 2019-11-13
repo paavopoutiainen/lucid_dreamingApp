@@ -1,4 +1,5 @@
 import React from "react"
+import DreamList from "../dreams/Dreamlist.js"
 
 function AnalyzePage({dreams}){
     
@@ -14,6 +15,7 @@ function AnalyzePage({dreams}){
           about dreamer's dreams for further analysis and practice.
         </p>
 
+        <DreamList dreams = { dreams }></DreamList>
         
        
       

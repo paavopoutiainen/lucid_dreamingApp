@@ -8,6 +8,9 @@ import Navbar from "./components/layout/Navbar"
 import DreamList from "./components/dreams/Dreamlist.js"
 import DreamDetails from "./components/dreams/DreamDetails.js"
 import axios from "axios"
+import SignIn from "./components/auth/SignIn"
+import SignUp from "./components/auth/SignUp"
+
 
 
 
@@ -44,10 +47,12 @@ function App() {
             <Route exact path="/" component={Home}/>
             <Route path ="/journal" component={JournalPage}></Route>
             <Route path = "/exercise_ideas" component={IdeasPage}></Route>
-            <Route path = "/analyze_dreams" component={AnalyzePage}></Route>
-            <Route path = "/dreamlist" render={(props) => <DreamList {...props} dreams = {dreams}/>}></Route>
+            <Route path = "/analyze_dreams" render={() => <AnalyzePage dreams = {dreams}/>}></Route>
+            <Route path = "/dreamlist" render={()=> <DreamList  dreams = {dreams}/>}></Route>
             <Route path = "/ideas" component={IdeasPage}></Route>
             <Route path = "/dreams/:id" component={DreamDetails}></Route>
+            <Route path = "/signin" component={SignIn}></Route>
+            <Route path = "/signup" component={SignUp}></Route>
           </Switch>
       </BrowserRouter>
       
