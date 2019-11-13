@@ -37,11 +37,15 @@ const useStyles = makeStyles(theme => ({
 const NewDream = ({number, handleClick}) => {
     const classes = useStyles();
     const [dream, setDream] = useState({name: "", content:""})
+    const [thisHidden, setHidden] = useState(false)
+    const style = thisHidden ? {display:"none"} :{}
    
 
     function handleChange(e){
       setDream({...dream, [e.target.name] : e.target.value})
     }
+
+  
 
     function saveDream(){
       const newDream = {
@@ -54,13 +58,15 @@ const NewDream = ({number, handleClick}) => {
       .then(res => console.log(res))
 
       setDream({name:"", content:""})
-      handleClick();
+      handleClick()
+      setHidden(true)
       
 
     }
 
     return (
-        <Paper className={classes.paper}>
+      
+        <Paper className={classes.paper} style={style} >
 
             <h5 style={{margin: 8}}>Dream {number}</h5>
             <form className={classes.paper}>
