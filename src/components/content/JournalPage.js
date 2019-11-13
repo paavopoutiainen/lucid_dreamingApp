@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+import Snackbar from '@material-ui/core/Snackbar';
+
+
 
 const useStyles = makeStyles(theme => ({
   fab: {
@@ -21,17 +24,17 @@ function JournalPage() {
 
   const [numberOfDreams, toggle] = useState(1)
   const [dreamComponents, setDreams] = useState()
-  /*const [dreams, fillDreams] = useState([])
-
-  function addNewObjectToState(){
-    let array = [...dreams]
-    array.push({
-      name: "",
-      content: ""
-    })
-    fillDreams(array)
+  const [open, setOpen] = React.useState(false);
+  
+  //for snackbar
+  const handleClick = () => {
+    setOpen(true);
+  };
+  function handleClose(){
+    setOpen(false)
   }
-*/
+  //forsnackbar^^
+
   function createNewDream(){
    /// addNewObjectToState()
     toggle(numberOfDreams +1)
@@ -43,7 +46,7 @@ function JournalPage() {
     
     setDreams(
       <Grid container spacing ={1} styles={{}}>
-        { helpArray.map((x, index) => <Grid item sm={4} xs={12} key={index} ><NewDream number={x}></NewDream></Grid>)}
+        { helpArray.map((x, index) => <Grid item sm={4} xs={12} key={index} ><NewDream number={x} handleClick={handleClick}></NewDream></Grid>)}
       </Grid>
     )
   }
@@ -53,6 +56,21 @@ function JournalPage() {
         <AddIcon />
       </Fab>
       {dreamComponents}
+      <div>
+      
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={open}
+        onClose= {handleClose}
+        autoHideDuration={2000}
+        message={<span id="message-id">Dream was saved</span>}
+      />
+    </div>
+ 
+
     </div>
     )
   }

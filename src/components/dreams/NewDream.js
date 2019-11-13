@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const NewDream = ({number}) => {
+const NewDream = ({number, handleClick}) => {
     const classes = useStyles();
     const [dream, setDream] = useState({name: "", content:""})
    
@@ -54,12 +54,14 @@ const NewDream = ({number}) => {
       .then(res => console.log(res))
 
       setDream({name:"", content:""})
-
+      handleClick();
+      
 
     }
 
     return (
         <Paper className={classes.paper}>
+
             <h5 style={{margin: 8}}>Dream {number}</h5>
             <form className={classes.paper}>
                 <TextField
