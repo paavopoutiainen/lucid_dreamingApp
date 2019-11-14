@@ -30,14 +30,16 @@ function JournalPage() {
   const handleClick = () => {
     setOpen(true);
   };
-  function handleClose(){
-    setOpen(false)
-  }
+  
   //forsnackbar^^
 
   function createNewDream(){
    /// addNewObjectToState()
     toggle(numberOfDreams +1)
+    var auto
+    var koira
+    var kissa
+  
     
     let helpArray = []
     for(var i = 1; i <= numberOfDreams; i++){
@@ -47,8 +49,9 @@ function JournalPage() {
     setDreams(
       //eli jos me pystyttäiski sillä save napin painalluksella muuttamaanki tän elementin hiddenii 
       //ja sitä kautta stylejä, that'd be cool right?
+      
       <Grid container spacing ={1} styles={{}}>
-        { helpArray.map((x, index) => <Grid item sm={4} xs={12} key={index} ><NewDream number={x} handleClick={handleClick}></NewDream></Grid>)}
+        { helpArray.map((x, index) => <Grid item sm={4} xs={12}  id={index} key={index} ><NewDream number={x} handleClick={handleClick}></NewDream></Grid>)}
       </Grid>
     )
   }
