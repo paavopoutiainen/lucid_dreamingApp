@@ -56,9 +56,10 @@ const NewDream = ({number, handleClick}) => {
       }
       axios.post("http://localhost:3001/dreams", newDream)
       .then(res => console.log(res))
+      .then(handleClick())
 
       setDream({name:"", content:""})
-      handleClick()
+      
       setHidden(true)
       
 

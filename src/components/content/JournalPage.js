@@ -30,16 +30,15 @@ function JournalPage() {
   const handleClick = () => {
     setOpen(true);
   };
+  const handleClose = () => {
+    setOpen(false)
+  }
   
   //forsnackbar^^
 
   function createNewDream(){
    /// addNewObjectToState()
     toggle(numberOfDreams +1)
-    var auto
-    var koira
-    var kissa
-  
     
     let helpArray = []
     for(var i = 1; i <= numberOfDreams; i++){
