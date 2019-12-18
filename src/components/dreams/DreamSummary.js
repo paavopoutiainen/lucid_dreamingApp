@@ -5,13 +5,16 @@ const DreamSummary = ({name, content, date, lucid}) => {
     
     return (
         
-        <Paper style={{padding : 10}}>
+        <Paper style={{padding : 10, backgroundColor: "pink"}}>
             <h5>
                 {name}
             </h5>
-            <p>{content}</p>
-            <p>{date.toString()}</p>
-            <p>lucid: {lucid.toString()}</p>
+            <div>
+                <p>{content}</p>
+                <p>{date.toString()}</p>
+                {lucid ? <span>Lucid dream</span>: null}
+            </div>
+            
         </Paper>     
         
     );

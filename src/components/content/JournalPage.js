@@ -46,11 +46,9 @@ function JournalPage() {
     }
     
     setDreams(
-      //eli jos me pystyttäiski sillä save napin painalluksella muuttamaanki tän elementin hiddenii 
-      //ja sitä kautta stylejä, that'd be cool right?
-      
+
       <Grid container spacing ={1} styles={{}}>
-        { helpArray.map((x, index) => <Grid item sm={4} xs={12}  id={index} key={index} ><NewDream number={x} handleClick={handleClick}></NewDream></Grid>)}
+        { helpArray.map((x, index) => <NewDream key={index} number={x} handleClick={handleClick}></NewDream>)}
       </Grid>
     )
   }

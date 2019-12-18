@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
     paper:{
       paddingRight: 8,
+      backgroundColor: "pink"
       
     },
     button:{
@@ -54,7 +56,7 @@ const NewDream = ({number, handleClick}) => {
         date: new Date(),
         lucid: true
       }
-      axios.post("http://localhost:3001/dreams", newDream)
+      axios.post("http://localhost:3001/api/dreams", newDream)
       .then(res => console.log(res))
       .then(handleClick())
 
@@ -66,8 +68,8 @@ const NewDream = ({number, handleClick}) => {
     }
 
     return (
-      
-        <Paper className={classes.paper} style={style} >
+      <Grid item sm={4} xs={12} style={style}>
+        <Paper className={classes.paper}  >
 
             <h5 style={{margin: 8}}>Dream {number}</h5>
             <form className={classes.paper}>
@@ -103,6 +105,7 @@ const NewDream = ({number, handleClick}) => {
           </form>
 
         </Paper>
+        </Grid>
         
     );
 };

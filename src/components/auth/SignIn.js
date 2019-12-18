@@ -1,9 +1,36 @@
 import React, {useState} from 'react';
 import '../../App.css';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+
+    },
+    dense: {
+      marginTop: theme.spacing(2),
+    },
+    menu: {
+      width: 200,
+    },
+    
+    button:{
+      margin: 10
+    }
+  }));
 
 const SignIn = () => {
 
     const [credentials, setCredentials] = useState({email: "", password:""})
+    const classes = useStyles();
     
     function handleSubmit (e) {
         console.log(e)
@@ -15,25 +42,50 @@ const SignIn = () => {
     }
 
     return (
-        <div className = "sign-in-page">
-            <div className= "container ">
-            <form onSubmit = {handleSubmit} >
-                <h5 className="black-text text-darken-3">Sign In</h5>
-                <div className="input-field">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={credentials.email} onChange={handleChange}></input>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={credentials.password} onChange={handleChange}></input>
-                </div>
-                <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Login</button>
-                </div>
-            </form>
+      
+        <Grid container spacing={1} direction = "column"  alignItems ="center">
             
-            </div>
-        </div>
+            <Grid item sm={12} xs={12}>
+                <div>
+                    <h5>Sign In</h5>
+                </div>
+                <form className={classes.paper}>
+                    <TextField
+                        id="standard-basic"
+                        label="Email"
+                        placeholder="Email"
+                       
+                        fullWidth
+                        type="email"
+                        name = "email"
+                        value={credentials.email}
+                        onChange={(e) => handleChange(e)}
+                        className={classes.textField}
+                        margin="normal"
+                       
+                    />
+                    <TextField
+                        id="standard-basic"
+                        label="Password"
+                        placeholder="Password"
+                        type="password"
+                        fullWidth
+                        name = "password"
+                        value={credentials.password}
+                        onChange={(e) => handleChange(e)}
+                        style={{height: "100%"}}
+                        className={classes.textField}
+                        margin="normal"
+                       
+                    />
+                    
+                </form>
+                <Button variant="contained" color="secondary">Sign In</Button>
+            </Grid>
+            
+        </Grid>
+     
+        
         
     );
 };

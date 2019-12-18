@@ -10,6 +10,7 @@ import DreamDetails from "./components/dreams/DreamDetails.js"
 import axios from "axios"
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp"
+import moment from "moment"
 
 
 
@@ -29,10 +30,13 @@ function App() {
 
   const [dreams, setDreams] = useState([])
 
-  function fetchDreams(){
-    axios.get("http://localhost:3001/dreams")
-    .then(res => res.data)
-    .then(res => setDreams(res))
+  const fetchDreams = async () => {
+    const dreams = await axios.get("http://localhost:3001/api/dreams")
+    const dateFixedDreams = dreams.data.map(d => {
+      const date = moment(d.date)
+      return {...d, date: date.format('MMMM Do YYYY, h:mm:ss a')}
+    })
+    setDreams(dateFixedDreams)
   }
 
   useEffect(() => {
