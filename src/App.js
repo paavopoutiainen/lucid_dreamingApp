@@ -48,15 +48,15 @@ function App() {
       <BrowserRouter>
         <Navbar></Navbar>
         <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path ="/journal" component={JournalPage}></Route>
-            <Route path = "/exercise_ideas" component={IdeasPage}></Route>
+            <Route exact path="/" render={() => <Home/>}/>
+            <Route path ="/journal" render={() => <JournalPage/>}></Route>
+            <Route path = "/exercise_ideas" render={() => <IdeasPage/>}></Route>
             <Route path = "/analyze_dreams" render={() => <AnalyzePage dreams = {dreams}/>}></Route>
             <Route path = "/dreamlist" render={()=> <DreamList  dreams = {dreams}/>}></Route>
-            <Route path = "/ideas" component={IdeasPage}></Route>
-            <Route path = "/dreams/:id" component={DreamDetails}></Route>
-            <Route path = "/signin" component={SignIn}></Route>
-            <Route path = "/signup" component={SignUp}></Route>
+            <Route path = "/ideas" render={() => <IdeasPage/>}></Route>
+            <Route path = "/dreams/:id" render={() => <DreamDetails/>}></Route>
+            <Route path = "/signin" render={() => <SignIn/>}></Route>
+            <Route path = "/signup" render={() => <SignUp/>}></Route>
           </Switch>
       </BrowserRouter>
       

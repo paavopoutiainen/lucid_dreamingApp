@@ -18,7 +18,7 @@ const SignUp = () => {
         <div className = "sign-up-page">
             <div className= "container">
             <form onSubmit = {handleSubmit} >
-                <h5 className="black-text text-darken-3">Sign In</h5>
+                <h5 className="black-text text-darken-3">Sign Up</h5>
                 <div className="input-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email"  value={credentials.email} onChange={handleChange}></input>
@@ -37,7 +37,7 @@ const SignUp = () => {
                 </div>
                 
                 <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Login</button>
+                    <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
                 </div>
             </form>
             

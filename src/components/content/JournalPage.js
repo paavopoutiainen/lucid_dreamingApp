@@ -24,11 +24,13 @@ function JournalPage() {
 
   const [numberOfDreams, toggle] = useState(1)
   const [dreamComponents, setDreams] = useState()
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("") 
   
   //for snackbar
-  const handleClick = () => {
+  const handleClick = (message) => {
     setOpen(true);
+    setMessage(message)
   };
   const handleClose = () => {
     setOpen(false)
@@ -46,7 +48,6 @@ function JournalPage() {
     }
     
     setDreams(
-
       <Grid container spacing ={1} styles={{}}>
         { helpArray.map((x, index) => <NewDream key={index} number={x} handleClick={handleClick}></NewDream>)}
       </Grid>
@@ -68,7 +69,7 @@ function JournalPage() {
         open={open}
         onClose= {handleClose}
         autoHideDuration={2000}
-        message={<span id="message-id">Dream was saved</span>}
+      message={<span id="message-id">{message}</span>}
       />
     </div>
  

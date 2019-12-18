@@ -14,6 +14,7 @@ function AnalyzePage({dreams}){
           be saved into a database in order to store relative data
           about dreamer's dreams for further analysis and practice.
         </p>
+        <h5>Choose the dream you want to analyze</h5>
 
         <DreamList dreams = { dreams }></DreamList>
         

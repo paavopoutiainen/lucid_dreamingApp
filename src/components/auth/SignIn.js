@@ -33,57 +33,36 @@ const SignIn = () => {
     const classes = useStyles();
     
     function handleSubmit (e) {
+        e.preventDefault()
         console.log(e)
     }
 
    function handleChange (e){
-        console.log(e)
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
 
     return (
       
-        <Grid container spacing={1} direction = "column"  alignItems ="center">
-            
-            <Grid item sm={12} xs={12}>
-                <div>
-                    <h5>Sign In</h5>
+      <div className = "sign-in-page">
+            <div className= "container">
+            <form onSubmit = {(e) => handleSubmit(e)} >
+                <h5 className="black-text text-darken-3">Sign In</h5>
+                <div className="input-field">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email"  value={credentials.email} onChange={handleChange}></input>
                 </div>
-                <form className={classes.paper}>
-                    <TextField
-                        id="standard-basic"
-                        label="Email"
-                        placeholder="Email"
-                       
-                        fullWidth
-                        type="email"
-                        name = "email"
-                        value={credentials.email}
-                        onChange={(e) => handleChange(e)}
-                        className={classes.textField}
-                        margin="normal"
-                       
-                    />
-                    <TextField
-                        id="standard-basic"
-                        label="Password"
-                        placeholder="Password"
-                        type="password"
-                        fullWidth
-                        name = "password"
-                        value={credentials.password}
-                        onChange={(e) => handleChange(e)}
-                        style={{height: "100%"}}
-                        className={classes.textField}
-                        margin="normal"
-                       
-                    />
-                    
-                </form>
-                <Button variant="contained" color="secondary">Sign In</Button>
-            </Grid>
+                <div className="input-field">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password"  value={credentials.password} onChange={handleChange}></input>
+                </div>
+                <div className="input-field">
+                    <button className="btn pink lighten-1 z-depth-0">Sign In</button>
+                </div>    
+              
+            </form>
             
-        </Grid>
+            </div>
+        </div>
      
         
         
