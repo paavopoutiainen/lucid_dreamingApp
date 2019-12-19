@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
     paper:{
       paddingRight: 8,
-      backgroundColor: "pink"
+      backgroundColor: "white"
       
     },
     button:{
@@ -47,31 +46,36 @@ const NewDream = ({number, handleClick}) => {
       setDream({...dream, [e.target.name] : e.target.value})
     }
 
-  
-
-    function saveDream(){
+    const saveDream = async() => {
       const newDream = {
         name: dream.name,
         content: dream.content,
-        date: new Date(),
         lucid: true
       }
-      axios.post("http://localhost:3001/api/dreams", newDream)
-      .then(res => console.log(res))
-      .then(handleClick())
+      try {
+        const response = await axios.post("http://localhost:3001/api/dreams", newDream)
+        console.log(response)
+        handleClick("Dream was saved")
+        setHidden(true)
+        setDream({name:"", content:""})
+      } catch (exception) {
+        console.error(exception.message)
+        handleClick("Wasn't able to save the dream")
+      }
+   }
 
-      setDream({name:"", content:""})
-      
-      setHidden(true)
-      
-
-    }
-
+   const handleClose = () => {
+    setHidden(true)
+   }
+//<CloseIcon onClick={handleClose} style={{onmouseover:"", cursor:"pointer"}} />
     return (
       <Grid item sm={4} xs={12} style={style}>
         <Paper className={classes.paper}  >
-
-            <h5 style={{margin: 8}}>Dream {number}</h5>
+       
+        <IconButton edge="end" color="inherit" aria-label="close" onClick={handleClose}>
+          <CloseIcon />
+        </IconButton>
+           <h5 style={{margin: 8}}>Dream {number}</h5>
             <form className={classes.paper}>
                 <TextField
                     id="filled-textarea"
@@ -103,8 +107,8 @@ const NewDream = ({number, handleClick}) => {
                   Save
                 </Button>
           </form>
-
         </Paper>
+        
         </Grid>
         
     );

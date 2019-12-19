@@ -18,6 +18,7 @@ const Dreamlist = ({dreams}) => {
                                 content={dream.content}
                                 date={dream.date}
                                 lucid={dream.lucid}
+                                id={dream.id}
                             >
                             </DreamSummary>
                         </Grid>)
